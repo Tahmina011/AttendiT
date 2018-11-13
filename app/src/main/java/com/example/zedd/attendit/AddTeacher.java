@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 public class AddTeacher extends DialogFragment {
 
 
-   /* interface AddTeacherDialogListener{
+    interface AddTeacherDialogListener{
 
         void onSaveButtonClick(DialogFragment dialog);
         //void onCancelButtonClick(DialogFragment dialog);
@@ -59,5 +59,5 @@ public class AddTeacher extends DialogFragment {
                     }
                 });
         return builder.create();
-    }*/
+    }
 }

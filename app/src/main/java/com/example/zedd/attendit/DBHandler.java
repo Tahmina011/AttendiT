@@ -19,7 +19,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     private static final String TABLE_STUDENT_DETAIL = "studentDetails";
-    private static final String KEY_ID= "t_id";
+   // private static final String KEY_ID= "t_id";
 
     private static final String KEY_ROLL_NO = "roll_no";
     private static final String KEY_NAME = "name";
@@ -54,7 +54,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + KEY_TPHONE_NO + " TEXT, "
                 + KEY_DEPT + " STRING )";*/
 
-        db.execSQL(CREATE_STUDENT_DETAIL_TABLE);
+       // db.execSQL(CREATE_STUDENT_DETAIL_TABLE);
        // db.execSQL(CREATE_TEACHER_DETAIL_TABLE);
 
     }
@@ -107,7 +107,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 */
-    public boolean updateStudentInfo(int updId, int updEnrolNo, String updName, String updPhoneNo, float updCgpa) {
+ /*   public boolean updateStudentInfo(int updId, int updEnrolNo, String updName, String updPhoneNo, float updCgpa) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -128,7 +128,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return db.delete(TABLE_STUDENT_DETAIL, KEY_ID + "=" + delID, null) > 0;
 
-    }
+    }*/
 
 
 
@@ -148,11 +148,10 @@ public class DBHandler extends SQLiteOpenHelper {
             do {
 
                 student stdnt = new student();
-                stdnt.set_id(Integer.parseInt(cursor.getString(0)));
-                stdnt.setRoll(cursor.getString(1));
-                stdnt.setName(cursor.getString(2));
-                stdnt.setPhone(cursor.getString(3));
-                stdnt.setCgpa(Float.parseFloat(cursor.getString(4)));
+                stdnt.setRoll(cursor.getString(0));
+                stdnt.setName(cursor.getString(1));
+                stdnt.setPhone(cursor.getString(2));
+                stdnt.setCgpa(Float.parseFloat(cursor.getString(3)));
 
 
                 studentList.add(stdnt);

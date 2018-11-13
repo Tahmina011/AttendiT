@@ -2,7 +2,7 @@ package com.example.zedd.attendit;
 
 public class teacher {
 
-       /* int t_id;
+       int t_id;
         String t_name;
         String t_phone;
         String t_dept;
@@ -52,6 +52,6 @@ public class teacher {
         public void set_tDept(String dept)
         {
             this.t_dept=dept;
-        }*/
+        }
     }
 
