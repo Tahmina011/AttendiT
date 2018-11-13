@@ -17,20 +17,24 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Attend";
 
-
+    //Student
     private static final String TABLE_STUDENT_DETAIL = "studentDetails";
-   // private static final String KEY_ID= "t_id";
-
     private static final String KEY_ROLL_NO = "roll_no";
     private static final String KEY_NAME = "name";
     private static final String KEY_PHONE_NO = "phone_number";
     private static final String KEY_CGPA = "cgpa";
 
-/*    private static final String TABLE_TEACHER_DETAIL = "teacherDetails";
+    //Teacher
+    private static final String TABLE_TEACHER_DETAIL = "teacherDetails";
     private static final String KEY_ID= "t_id";
     private static final String KEY_TNAME = "tname";
     private static final String KEY_TPHONE_NO = "tphone_number";
-    private static final String KEY_DEPT = "dept";*/
+    private static final String KEY_DEPT = "dept";
+
+    //Course
+    private static final String TABLE_COURSE_DETAIL = "courseDetails";
+    private static final String KEY_COURSE_NO= "course_no";
+    private static final String KEY_COURSE_TITLE= "course_title";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -48,14 +52,19 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_STUDENT_DETAIL_TABLE);
 
-      /*  String CREATE_TEACHER_DETAIL_TABLE = "CREATE TABLE " + TABLE_TEACHER_DETAIL + "("
+       String CREATE_TEACHER_DETAIL_TABLE = "CREATE TABLE " + TABLE_TEACHER_DETAIL + "("
                 + KEY_ID + " INTEGER,"
                 + KEY_TNAME + " TEXT,"
                 + KEY_TPHONE_NO + " TEXT, "
-                + KEY_DEPT + " STRING )";*/
+                + KEY_DEPT + " TEXT )";
 
-       // db.execSQL(CREATE_STUDENT_DETAIL_TABLE);
-       // db.execSQL(CREATE_TEACHER_DETAIL_TABLE);
+       db.execSQL(CREATE_TEACHER_DETAIL_TABLE);
+
+        String CREATE_COURSE_DETAIL_TABLE = "CREATE TABLE " + TABLE_COURSE_DETAIL + "("
+                + KEY_COURSE_NO + " TEXT,"
+                + KEY_COURSE_TITLE + " TEXT )";
+
+        db.execSQL(CREATE_COURSE_DETAIL_TABLE);
 
     }
 
@@ -90,7 +99,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-  /*  void addNewTeacher(teacher newteach) {
+    void addNewTeacher(teacher newteach) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -106,7 +115,18 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_TEACHER_DETAIL, null, values);
         db.close();
     }
-*/
+    void addNewCourse(course newcourse) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_COURSE_NO,newcourse.getCourse_no());
+        values.put(KEY_COURSE_TITLE,newcourse.getCourse_title());
+        db.insert(TABLE_COURSE_DETAIL, null, values);
+        db.close();
+    }
+
  /*   public boolean updateStudentInfo(int updId, int updEnrolNo, String updName, String updPhoneNo, float updCgpa) {
 
         SQLiteDatabase db = this.getWritableDatabase();
