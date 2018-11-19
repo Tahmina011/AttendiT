@@ -7,5 +7,4 @@
     android:layout_height="wrap_content"
     android:text="Account Fragment"
     android:layout_gravity="center_vertical|center_horizontal"/>
-
 </FrameLayout>

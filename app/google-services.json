@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "20916576986",
+    "firebase_url": "https://attendit-6e2c7.firebaseio.com",
+    "project_id": "attendit-6e2c7",
+    "storage_bucket": "attendit-6e2c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20916576986:android:aedee1b7f14a4ec6",
+        "android_client_info": {
+          "package_name": "com.example.zedd.attendit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20916576986-71iofgtlf5f10b1kac1jv250fq8lk1kn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zedd.attendit",
+            "certificate_hash": "9a9dd6c9b909ea641b9b32fdf78cdbab2d689f43"
+          }
+        },
+        {
+          "client_id": "20916576986-t0f2v2aadb7b5oqkeoi459cc9m3skf2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpaDcA9cnSpBKLU_Y2Iis4NOvEmunBkyU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20916576986-t0f2v2aadb7b5oqkeoi459cc9m3skf2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

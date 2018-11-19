@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent num;
-                num = new Intent(getActivity(), Studentdatabase.class);
+                num = new Intent(getActivity(), FirebaseDatabaseCreate.class);
                 startActivity(num);
             }
         });
