@@ -1,6 +1,7 @@
 package com.example.zedd.attendit;
 
 import android.content.Intent;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent num;
-                num = new Intent(getActivity(), FirebaseDatabaseCreate.class);
+                num = new Intent(getActivity(), Fingerprint_student.class);
                 startActivity(num);
             }
         });

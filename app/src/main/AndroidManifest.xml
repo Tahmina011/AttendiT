@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zedd.attendit">
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,8 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Studentdatabase"></activity>
-        <activity android:name=".FirebaseDatabaseCreate"></activity>
+        <activity android:name=".Studentdatabase" />
+        <activity android:name=".FirebaseDatabaseCreate" />
+        <activity android:name=".fireAddTeacher" />
+        <activity android:name=".CourseAct" />
+        <activity android:name=".AddCourseForAttendace" />
+        <activity android:name=".Fingerprint_student" android:exported="true"/>
     </application>
 
 </manifest>

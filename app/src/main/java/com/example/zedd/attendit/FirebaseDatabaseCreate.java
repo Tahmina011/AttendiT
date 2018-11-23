@@ -55,16 +55,47 @@ public class FirebaseDatabaseCreate extends AppCompatActivity {
         String email=editemail.getText().toString();
         String pass=editpass.getText().toString();
         String gen=gender.getSelectedItem().toString();
-         if (!TextUtils.isEmpty(s_roll)&&!TextUtils.isEmpty(gen) &&!TextUtils.isEmpty(name) && !TextUtils.isEmpty(bd) &&  !TextUtils.isEmpty(phone) &&   !TextUtils.isEmpty(uid) && !TextUtils.isEmpty(email) &&  !TextUtils.isEmpty(pass))
-         {
-            // String ss=dataref.push().getKey();
+
+        if (TextUtils.isEmpty(s_roll))
+        {
+            Toast.makeText(this,"Please enter  roll",Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(name))
+        {
+            Toast.makeText(this,"Please enter  name",Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(bd))
+        {
+            Toast.makeText(this,"Please enter  birth date",Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(phone))
+        {
+            Toast.makeText(this,"Please enter  phone",Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(uid))
+        {
+            Toast.makeText(this,"Please enter  user_id",Toast.LENGTH_LONG).show();
+        }
+        else if(TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this,"Please enter  Email",Toast.LENGTH_LONG).show();
+        }
+        else if (TextUtils.isEmpty(pass))
+        {
+            Toast.makeText(this,"Please enter  Password",Toast.LENGTH_LONG).show();
+        }
+        else {
             StudentF studennt=new StudentF(name,bd,gen,uid,email,pass,s_roll,phone);
             dataref.child(s_roll).setValue(studennt);
+            editname.setText("");
+            editbd.setText("");
+            editphone.setText("");
+            editpass.setText("");
+            editroll.setText("");
+            edituid.setText("");
+            editemail.setText("");
             Toast.makeText(this,"Student Information added to the list",Toast.LENGTH_LONG).show();
-         }
-         else{
-             Toast.makeText(this,"you should enter all  the fields",Toast.LENGTH_LONG).show();
-         }
+        }
     }
 
 }
