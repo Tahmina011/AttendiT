@@ -4,10 +4,39 @@
     <string name="nav_notif">Notificatios</string>
     <string name="nav_search">Search</string>
     <string name="nav_account">Account</string>
+    <string name="dialog_title">Items available in a shop</string>
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Clear all</string>
     <string-array name="gender">
         <item>Female</item>
         <item>Male</item>
         <item>Others</item>
+    </string-array>
+    <string-array name="courseno">
+        <item>CSE_3200</item>
+        <item>CSE_3201</item>
+        <item>CSE_3202</item>
+        <item>CSE_3207</item>
+        <item>CSE_3211</item>
+        <item>CSE_3212</item>
+        <item>CSE_3217</item>
+        <item>HUM_3207</item>
+    </string-array>
+    <string name="make_an_order">Make an order</string>
+
+
+    <string-array name="shopping_item">
+        <item>Onion</item>
+        <item>Sausage</item>
+        <item>Milk</item>
+        <item>Garlic</item>
+        <item>Beef</item>
+        <item>Veggies</item>
+        <item>Olive</item>
+        <item>Cheese</item>
+        <item>Tuna</item>
+        <item>Mushrooms</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -143,6 +143,10 @@
         android:text="SAVE"
         android:id="@+id/es_save"/>
 
-
+    <ListView
+        android:id="@+id/listViewStudents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"></ListView>
 </LinearLayout>
 </ScrollView>

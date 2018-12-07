@@ -3,6 +3,7 @@ package com.example.zedd.attendit;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
@@ -70,7 +71,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
             paraLabel.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
             //imageView.setImageResource(R.mipmap.action_done);
-            paraLabel.setText("eeeeeeeyeeeeeeeessss!!");
+
 
         }
 

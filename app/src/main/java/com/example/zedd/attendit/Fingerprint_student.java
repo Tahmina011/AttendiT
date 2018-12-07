@@ -3,6 +3,7 @@ package com.example.zedd.attendit;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
@@ -77,6 +78,9 @@ public class Fingerprint_student extends AppCompatActivity {
                     FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
                     FingerprintHandler fingerprintHandler = new FingerprintHandler(this);
                     fingerprintHandler.startAuth(fingerprintManager, cryptoObject);
+                    /*Intent intent;
+                    intent = new Intent(this,AddCourseForAttendace.class);
+                    startActivity(intent);*/
                 }
             }
         }

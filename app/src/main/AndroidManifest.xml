@@ -3,6 +3,9 @@
     package="com.example.zedd.attendit">
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -22,8 +25,13 @@
         <activity android:name=".FirebaseDatabaseCreate" />
         <activity android:name=".fireAddTeacher" />
         <activity android:name=".CourseAct" />
-        <activity android:name=".AddCourseForAttendace" />
-        <activity android:name=".Fingerprint_student" android:exported="true"/>
+        <activity
+            android:name=".AddCourseForAttendace"
+            android:exported="true" />
+        <activity android:name=".location_taken" />
+        <activity android:name=".currentlocationcheck" />
+        <activity android:name=".course_teach"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
