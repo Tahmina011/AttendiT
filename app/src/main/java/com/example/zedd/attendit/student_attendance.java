@@ -4,21 +4,23 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,118 +28,125 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
-public class AddCourseForAttendace extends AppCompatActivity {
-    Button addCourse;
-    EditText couseName;
-
-    EditText addDdate;
-    Button adddat;
-
-    EditText cou;
-    EditText roll;
-    Button givepre;
-    DatabaseReference attendance,reffff;
+public class student_attendance extends AppCompatActivity {
+    Spinner cor;
+    Button getsheet;
+    TextView stoptime;
+    EditText getcode;
+    String sk;
+    DatabaseReference attendance,coding;
     LocationManager locationM;
     private static final int REQUEST_LOCATIO = 1;
     double l,ll;
     double distance=123456789023455.0;
+    DatabaseReference statusroll;
+    FirebaseAuth mfire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course_for_attendace);
-
+        setContentView(R.layout.activity_student_attendance);
+        mfire = FirebaseAuth.getInstance();
+        coding=FirebaseDatabase.getInstance().getReference("classcode");
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATIO);
         attendance= FirebaseDatabase.getInstance().getReference("ATTENDANCE");
-
-        addCourse = (Button)findViewById(R.id.addCourse);
-        couseName=(EditText)findViewById(R.id.courseName);
-        addDdate=(EditText)findViewById(R.id.setDate);
-        adddat=(Button)findViewById(R.id.addDate);
-        roll=(EditText)findViewById(R.id.giveattendance);
-        cou=(EditText)findViewById(R.id.fixcourseno);
-        givepre=(Button)findViewById(R.id.giveatt);
+        cor=(Spinner)findViewById(R.id.cous);
+        stoptime=(TextView)findViewById(R.id.time);
+        getsheet=(Button)findViewById(R.id.heet);
+        getcode=(EditText)findViewById(R.id.clascode);
+        statusroll=FirebaseDatabase.getInstance().getReference("status");
 
 
-
-        addCourse.setOnClickListener(new View.OnClickListener(){
+        getsheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addCour();
             }
-        } );
-        adddat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                locationM = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                if (!locationM.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    buildAlertMessageNoGps();
-
-                }
-                if (locationM.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    getLocation();
-                    //giveAttendance();
-                }
-            }
         });
-        givepre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
 
-                    giveAttendance();
-
-
-            }
-        });
 
     }
     private void addCour(){
-        String course=couseName.getText().toString().trim();
-        if(TextUtils.isEmpty(course))
-        {
-            Toast.makeText(this,"Please Enter Course No",Toast.LENGTH_LONG);
-        }
-        else {
-            attendCourse att=new attendCourse(course);
-            attendance.child(course).setValue(att);
-            couseName.setText("");
-            Toast.makeText(this,"Attendance sheet is Ready for "+course+"!!",Toast.LENGTH_LONG);
+        String cour=cor.getSelectedItem().toString();
+        Query query;
+        final String co=getcode.getText().toString();
+        final int[] flagg = {0};
 
-        }
-    }
-    private void addDate() {
-        String checkc = addDdate.getText().toString().trim();
-        //Query query = FirebaseDatabase.getInstance().getReference("Attendance").orderByChild(new attendCourse().getCourseNo()).equalTo(checkc);
-        if (TextUtils.isEmpty(checkc)) {
-            Toast.makeText(this, "Please Enter Course No", Toast.LENGTH_LONG).show();
-        }
-        else {
-           /* if (query.equals(null))
-            {
-                Toast.makeText(this,"No Attendance Sheet",Toast.LENGTH_LONG).show();
+        query = coding.orderByChild("course").equalTo(cour);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot codee:dataSnapshot.getChildren())
+                {
+                    String tcode;
+                    code c=new code();
+                   c= codee.getValue(code.class);
+                   tcode =c.codee;
+                   if(tcode.equals(co))
+                   {
+                       String casee=cor.getSelectedItem().toString();
+                       Calendar cal = Calendar.getInstance();
+                       Date date=cal.getTime();
+                       DateFormat dateFormat = new SimpleDateFormat("yyyy MM dd hh");
+                       String formattedDate=dateFormat.format(date);
+                       attendance=attendance.child(casee).child(formattedDate);
+                       Status stusta=new Status();
+                       String Uid = mfire.getCurrentUser().getUid();
+                       Query qu= qu=statusroll.orderByChild("uid").equalTo(Uid);
+
+                       qu.addListenerForSingleValueEvent(new ValueEventListener() {
+                           @Override
+                           public void onDataChange(DataSnapshot dataSnapshot) {
+                               for (DataSnapshot postsnapshot:dataSnapshot.getChildren()) {
+                                   final Status sta = postsnapshot.getValue(Status.class);
+                                   sk = sta.idd;
+                                   roll_absent att=new roll_absent(sk,true);
+                                   attendance.child(sk).setValue(att);
+                                   flagg[0] =1;
+
+
+                               }
+                           }
+
+                           @Override
+                           public void onCancelled(DatabaseError databaseError) {
+
+                           }
+                       });
+
+                   }
+                }
             }
-            else {*/
 
-                Calendar cal = Calendar.getInstance();
-                Date date=cal.getTime();
-                DateFormat dateFormat = new SimpleDateFormat("yyyy MM dd hh mm");
-                String formattedDate=dateFormat.format(date);
-                DateAdd d=new DateAdd(formattedDate);
-                attendance.child(checkc).child(formattedDate).setValue(d);
-                addDdate.setText("");
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+        if(flagg[0]==1)
+        {
+            Toast.makeText(this,"Attendance taken !!",Toast.LENGTH_LONG).show();
         }
+        else
+        {
+            Toast.makeText(this,"Attendance fails !!",Toast.LENGTH_LONG).show();
+        }
+
+
+
+
+        //
+
+
     }
-    private void giveAttendance()
+
+  /*  private void giveAttendance()
     {
        String  lattitude = String.valueOf(l);
        String longitude = String.valueOf(ll);
@@ -199,7 +208,7 @@ public class AddCourseForAttendace extends AppCompatActivity {
 
 
                 String teacher_id="01234";
-                reffff=FirebaseDatabase.getInstance().getReference("classLocation");
+                reffff= FirebaseDatabase.getInstance().getReference("classLocation");
                 class_teacher_location s;
                 Query qu;
                 qu=reffff.orderByChild("teacher_id");
@@ -239,7 +248,7 @@ public class AddCourseForAttendace extends AppCompatActivity {
 
 
                 String teacher_id="01234";
-                reffff=FirebaseDatabase.getInstance().getReference("classLocation");
+                reffff= FirebaseDatabase.getInstance().getReference("classLocation");
                 class_teacher_location s;
                 Query qu;
                 qu=reffff.orderByChild("teacher_id");
@@ -279,7 +288,7 @@ public class AddCourseForAttendace extends AppCompatActivity {
 
 
                 String teacher_id="01234";
-                reffff=FirebaseDatabase.getInstance().getReference("classLocation");
+                reffff= FirebaseDatabase.getInstance().getReference("classLocation");
                 class_teacher_location s;
                 Query qu;
                 qu=reffff.orderByChild("teacher_id");
@@ -318,6 +327,6 @@ public class AddCourseForAttendace extends AppCompatActivity {
 
             }
         }
-    }
+    }*/
 
 }

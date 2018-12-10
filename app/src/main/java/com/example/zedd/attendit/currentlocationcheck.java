@@ -171,8 +171,8 @@ private void getLocation() {
                         e.printStackTrace();
                 }
 
-                String s = longitude+"\n"+lattitude +
-                        "\n\nMy Currrent City is: "+cityName;
+                String s = longitude+"\n"+lattitude
+                        +"\n\nMy Currrent City is: "+cityName;
                 textView.setText(s);
 
 

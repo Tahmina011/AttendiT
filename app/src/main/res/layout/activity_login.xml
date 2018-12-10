@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#72CBB8"
+    tools:context=".LoginActivity"
+    android:paddingTop="20dp">
+    <LinearLayout
+
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="12dp">
+
+
+        <EditText
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter_username"
+            android:textColor="#295598"/>
+
+        <EditText
+            android:textColor="#295598"
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Enter_password" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#295598"
+            android:background="#94DE97"
+            android:text="Log In" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/textViewSignup"
+            android:layout_height="wrap_content"
+            android:textColor="#295598"
+            android:layout_gravity="center_horizontal"
+            android:text="Don't have an account! Sign up Now"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

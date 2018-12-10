@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    xmlns:tools="http://schemas.android.com/tools">
-
+    tools:context=".student_front_page">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="10dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -16,10 +16,8 @@
             android:text="My Profile"
             android:drawableRight="@drawable/round_keyboard_arrow_right_black_24"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/myprof"
+            android:id="@+id/mypro"
             android:padding="10dp"
-            android:onClick="onClickmyprof"
-            android:clickable="true"
             />
         <TextView
             android:layout_width="match_parent"
@@ -27,11 +25,10 @@
             android:text="My Courses"
             android:drawableRight="@drawable/round_keyboard_arrow_right_black_24"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:id="@+id/mycourses"
+            android:id="@+id/mycours"
             android:padding="10dp"
-            android:onClick="onClickmycourses"
-            android:clickable="true"
             />
     </LinearLayout>
 
-</FrameLayout>
+
+</LinearLayout>

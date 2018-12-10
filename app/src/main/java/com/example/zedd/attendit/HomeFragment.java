@@ -17,13 +17,8 @@ import android.widget.TextView;
 public class HomeFragment extends Fragment {
     private static final long START_TIME_IN_MILLIS = 600000;
 
-    private TextView mTextViewCountDown;
-
-    private CountDownTimer mCountDownTimer;
-
-    private boolean mTimerRunning;
-
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private TextView myprof;
+    private TextView mycourse;
 
 
     @Nullable
@@ -31,12 +26,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment,container,false);
         View addst;
-        addst=(Button)view.findViewById(R.id.db);
-        addst.setOnClickListener(new View.OnClickListener() {
+        myprof=(TextView) view.findViewById(R.id.myprof);
+        myprof.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent num;
-                num = new Intent(getActivity(), Fingerprint_student.class);
+                num = new Intent(getActivity(), teacherprofile.class);
                 startActivity(num);
             }
         });
@@ -51,5 +46,11 @@ public class HomeFragment extends Fragment {
     public void setTime(View v)
     {
 
+    }
+    public void onClickmyprof(View v)
+    {
+        Intent num;
+        num = new Intent(getActivity(), teacherprofile.class);
+        startActivity(num);
     }
 }

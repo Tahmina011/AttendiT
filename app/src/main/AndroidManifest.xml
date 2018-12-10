@@ -15,23 +15,51 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainNavActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".Studentdatabase" />
         <activity android:name=".FirebaseDatabaseCreate" />
         <activity android:name=".fireAddTeacher" />
         <activity android:name=".CourseAct" />
+        <activity android:name=".AddCourseForAttendace" />
         <activity
-            android:name=".AddCourseForAttendace"
+            android:name=".location_taken"
             android:exported="true" />
-        <activity android:name=".location_taken" />
-        <activity android:name=".currentlocationcheck" />
-        <activity android:name=".course_teach"
-            android:exported="true"></activity>
+        <activity
+            android:name=".currentlocationcheck"
+            android:exported="true" />
+        <activity
+            android:name=".course_teach"
+            android:exported="true" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".welcomepage">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".teacherprofile"
+            android:exported="true" />
+        <activity android:name=".teacherstartingpage" />
+        <activity
+            android:name=".attendance_sheet"
+            android:exported="true" />
+        <activity android:name=".teacher_front_page" />
+        <activity android:name=".studentRegistration" />
+        <activity
+            android:name=".AdminPage"
+            android:exported="true" />
+        <activity android:name=".studentprof" />
+        <activity
+            android:name=".student_front_page"
+            android:exported="true" />
+        <activity android:name=".student_attendance"></activity>
     </application>
 
 </manifest>

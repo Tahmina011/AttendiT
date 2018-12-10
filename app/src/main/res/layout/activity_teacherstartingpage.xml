@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    xmlns:tools="http://schemas.android.com/tools">
-
+    tools:context=".teacherstartingpage">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="10dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -18,8 +18,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/myprof"
             android:padding="10dp"
-            android:onClick="onClickmyprof"
-            android:clickable="true"
             />
         <TextView
             android:layout_width="match_parent"
@@ -29,9 +27,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:id="@+id/mycourses"
             android:padding="10dp"
-            android:onClick="onClickmycourses"
-            android:clickable="true"
             />
     </LinearLayout>
 
-</FrameLayout>
+
+</LinearLayout>

@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:background="#5cc5c1"
-    tools:context=".Studentdatabase">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="DATABASE"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".AdminPage">
+
 
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
+
         android:layout_marginTop="20dp"
         android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ADMIN PAGE"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/textView" />
 
         <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD STUDENT"
-        android:id="@+id/btnAddStudent" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD STUDENT"
+            android:id="@+id/btnAddStudent" />
 
         <Button
             android:layout_width="match_parent"
@@ -47,4 +46,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
