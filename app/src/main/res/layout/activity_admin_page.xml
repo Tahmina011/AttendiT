@@ -43,6 +43,16 @@
             android:layout_height="wrap_content"
             android:text="ADD COURSE"
             android:id="@+id/btnAddCourse" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD STUDENT COURSE"
+            android:id="@+id/btnAddCoursestudent" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD TEACHER COURSE"
+            android:id="@+id/btnAddCourseteacher" />
     </LinearLayout>
 
 

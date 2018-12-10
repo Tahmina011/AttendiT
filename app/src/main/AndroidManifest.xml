@@ -14,8 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainNavActivity">
-        </activity>
+        <activity android:name=".MainNavActivity" />
         <activity android:name=".FirebaseDatabaseCreate" />
         <activity android:name=".fireAddTeacher" />
         <activity android:name=".CourseAct" />
@@ -35,13 +34,12 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
-        <activity
-            android:name=".welcomepage">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".welcomepage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".teacherprofile"
@@ -59,7 +57,9 @@
         <activity
             android:name=".student_front_page"
             android:exported="true" />
-        <activity android:name=".student_attendance"></activity>
+        <activity android:name=".student_attendance" />
+        <activity android:name=".add_teacher_course" />
+        <activity android:name=".add_student_course"></activity>
     </application>
 
 </manifest>

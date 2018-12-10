@@ -39,7 +39,7 @@ public class student_attendance extends AppCompatActivity {
     TextView stoptime;
     EditText getcode;
     String sk;
-    DatabaseReference attendance,coding;
+    DatabaseReference attendance,coding,count_present;
     LocationManager locationM;
     private static final int REQUEST_LOCATIO = 1;
     double l,ll;
@@ -53,6 +53,7 @@ public class student_attendance extends AppCompatActivity {
         setContentView(R.layout.activity_student_attendance);
         mfire = FirebaseAuth.getInstance();
         coding=FirebaseDatabase.getInstance().getReference("classcode");
+
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATIO);
         attendance= FirebaseDatabase.getInstance().getReference("ATTENDANCE");
         cor=(Spinner)findViewById(R.id.cous);
@@ -60,6 +61,7 @@ public class student_attendance extends AppCompatActivity {
         getsheet=(Button)findViewById(R.id.heet);
         getcode=(EditText)findViewById(R.id.clascode);
         statusroll=FirebaseDatabase.getInstance().getReference("status");
+        count_present=FirebaseDatabase.getInstance().getReference("student_course");
 
 
         getsheet.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +79,7 @@ public class student_attendance extends AppCompatActivity {
         Query query;
         final String co=getcode.getText().toString();
         final int[] flagg = {0};
+
 
         query = coding.orderByChild("course").equalTo(cour);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,6 +101,7 @@ public class student_attendance extends AppCompatActivity {
                        attendance=attendance.child(casee).child(formattedDate);
                        Status stusta=new Status();
                        String Uid = mfire.getCurrentUser().getUid();
+                       count_present=count_present.child(Uid);
                        Query qu= qu=statusroll.orderByChild("uid").equalTo(Uid);
 
                        qu.addListenerForSingleValueEvent(new ValueEventListener() {
